@@ -7,6 +7,6 @@ TileMill source code:
 
 https://github.com/tilemill-project/tilemill.git
 
-Mapnik source code: (dependency used by TileMill):
+Mapnik source code (dependency used by TileMill):
 
 https://github.com/mapnik/mapnik.git
