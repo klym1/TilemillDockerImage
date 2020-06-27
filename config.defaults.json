@@ -1,0 +1,11 @@
+{
+    "port": 20009,
+    "tilePort": 20008,
+    "files": "~/Documents/MapBox",
+    "examples": true,
+    "sampledata": true,
+    "host": false,
+    "listenHost": "0.0.0.0",
+    "server": true,
+    "verbose": "on"
+}
