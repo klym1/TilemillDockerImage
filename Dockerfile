@@ -57,4 +57,5 @@ COPY config.defaults.json /opt/tilemill/lib/config.defaults.json
 
 WORKDIR /opt/tilemill
 
+EXPOSE 20008, 20009
 ENTRYPOINT ["npm", "start"]
