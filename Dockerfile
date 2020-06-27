@@ -24,17 +24,9 @@ RUN apt-get update && apt-get install -y \
         libcairomm-1.0-dev \
         ttf-unifont ttf-dejavu ttf-dejavu-core ttf-dejavu-extra \
         python3-nose \
-        libgdal-dev python3-gdal 
+        libgdal-dev python3-gdal \
+        git
 
-RUN apt-get update && apt-get install -y \
-        git \
-        node-gyp \
-        libssl1.0-dev \
-        nodejs \
-        curl \
-        npm \
-        nano     
-    
 WORKDIR /opt
        
 RUN git clone -b v${MAPNIK_INSTALL_VERSION} --single-branch --recursive https://github.com/mapnik/mapnik.git
@@ -51,11 +43,21 @@ RUN git clone https://github.com/tilemill-project/tilemill.git
 
 WORKDIR /opt/tilemill
 
+RUN apt-get install curl -y
+
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
+
+RUN apt-get update && apt-get install -y \
+        node-gyp \
+        libssl1.0-dev \
+        nodejs \
+        nano     
+
 RUN npm install
 
 COPY config.defaults.json /opt/tilemill/lib/config.defaults.json
 
 WORKDIR /opt/tilemill
 
-EXPOSE 20008, 20009
+EXPOSE 20008-20009
 ENTRYPOINT ["npm", "start"]
